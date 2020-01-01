@@ -80,23 +80,6 @@ php -S localhost:8888
 
 where :8888 is port and can be any number.
 
-To interpret code as php start with:
-
-```php
-<?php
-```
-
-If the file contains only php code you should not close the opening php tag.
-
-If the php code is part of html code you should end code with closing tag:
-
-```php+HTML
-<h1>Example</h1>
-<?php
-  echo 'Hello, World!';
-?>
-```
-
 To declare variable use \$ sign followed by name of variable:
 
 ```php
@@ -127,4 +110,48 @@ echo 'Hello,' . $name; //concatenate single quotes string and variabble
 echo "Hello, $name"; //concatenate double quotes string and variable
 echo "Hello, {$name}"; //use {} around variable for better readability
 echo "{$greeting}, {$name}"; //nesting variables in sting. Must use double quotes
+```
+
+**Step 4: PHP and HTML**
+
+To interpret code as php start with:
+
+```php
+<?php
+```
+
+If the file contains only php code you should not close the opening php tag.
+
+If the php code is part of html code you should end code with closing tag:
+
+```php+HTML
+<h1>Example</h1>
+<?php
+  echo 'Hello, World!';
+?>
+```
+
+Get value from url as key pair array:
+
+URL: localhost:8888/?name=John
+
+everything after ? sign is a parameter or key value pair in this case name is a key and John is a value.
+
+```php+HTML
+<header>
+	<h1>
+  	<?php
+  		$name = $_get['name'];
+  		echo "Hello, $name";
+  	?>
+	</h1>
+</header>
+```
+
+or the same thing with concatenation:
+
+```php+HTML
+<h1>
+  <?php echo "Hello, " . $_GET['name']; ?>
+</h1>
 ```
