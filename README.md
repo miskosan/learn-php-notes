@@ -155,3 +155,19 @@ or the same thing with concatenation:
   <?php echo "Hello, " . $_GET['name']; ?>
 </h1>
 ```
+
+One shorthand to remember:
+
+Instead of
+
+```php
+<?php echo $greeting; ?>
+```
+
+we can use:
+
+```php
+<?= $greeting; ?>
+```
+
+This shorthand is a common use in template files.
