@@ -171,3 +171,17 @@ we can use:
 ```
 
 This shorthand is a common use in template files.
+
+To include code from another file we can use:
+
+```php
+require 'index.view.php';
+```
+
+or
+
+```php
+include 'index.view.php';
+```
+
+The difference is that require will throw fatal error if file is not found and include will give you only warning.
