@@ -2,6 +2,8 @@
 
 My notes while learning PHP with [Laracast PHP for beginners](https://laracasts.com/series/php-for-beginners/)
 
+
+
 **Step 1: Install PHP**
 
 Mac OS X
@@ -48,6 +50,8 @@ Linux
 
 Linux is great choice for PHP development and comes preinstalled with PHP but you should check PHP version in distribution of your choice and upgrade to supported version.
 
+
+
 **Step 2: Install code editor**
 
 There are many great options here for all major operating systems:
@@ -61,6 +65,8 @@ There are many great options here for all major operating systems:
 or full IDE like
 
 [PhpStorm](https://www.jetbrains.com/phpstorm/)
+
+
 
 **Step 3: Variables**
 
@@ -111,6 +117,8 @@ echo "Hello, $name"; //concatenate double quotes string and variable
 echo "Hello, {$name}"; //use {} around variable for better readability
 echo "{$greeting}, {$name}"; //nesting variables in sting. Must use double quotes
 ```
+
+
 
 **Step 4: PHP and HTML**
 
@@ -172,6 +180,10 @@ we can use:
 
 This shorthand is a common use in template files.
 
+
+
+**Step 5: Separate PHP logic from presentation**
+
 To include code from another file we can use:
 
 ```php
@@ -185,3 +197,65 @@ include 'index.view.php';
 ```
 
 The difference is that require will throw fatal error if file is not found and include will give you only warning.
+
+
+
+**Step 6: Understanding arrays**
+
+You can think about array as primitive collection of related things.
+
+To define an array use open and closed brackets [ ].
+
+This is empty array:
+
+```php
+$names = [];
+```
+
+ And array populated with strings:
+
+```php
+$names = [
+  'Jeff'
+  'John'
+  'Mary'
+];
+```
+
+Loop trough array `$names` and write out every string:
+
+```php
+foreach ($names as $name) {
+  echo $name;
+}
+```
+
+Which means loop trough array `$names` and on every loop store value in variable `$name` and run the code inside curly brackets `{}` . Return and repeat until the end of array.
+
+Twi different ways to include PHP in HTML:
+
+```php+HTML
+<ul>
+  <?php foreach ($name as $name) : ?>
+  	<li><?= $name; ?></li>
+  <?php endforeach; ?>
+</ul>
+```
+
+or
+
+```php+HTML
+<ul>
+  <?php
+		foreach ($names as $name) {
+    	echo "<li>$name</li>";
+  	}
+	?>
+</ul>  
+```
+
+
+
+In the first code we include php inside html, close it with the colon sign and continue on next line until we reach `endforeach`.
+
+This way can be more readable when including many html inline.
